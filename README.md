@@ -5,12 +5,12 @@ This is an experiment to see if machines can learn to generate realistic soundin
 
 ## File details
 ### data
-**male.txt**: contains male names list
-**female.txt**: contains female names list
+**male.txt**: contains male names list  
+**female.txt**: contains female names list  
 ### codes
-**data_utils.py**: contains data handling functions
-**train.py**: the main training module
-**generate.py**: contains function to generate names from already trained and saved models
+**data_utils.py**: contains data handling functions  
+**train.py**: the main training module  
+**generate.py**: contains function to generate names from already trained and saved models  
 
 
 ## Get started:
