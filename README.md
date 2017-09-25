@@ -1,7 +1,7 @@
 # recurrent_name_generator
 GAN based name generator: work in progress
 
-This is an experiment to see if machines can learn to generate realistic sounding names. Work is still in progress. It shows promising results and does NOT throw *absolute gibberish*. But it is not able to generate sufficient variation in the output as of now.
+This is an experiment to see if machines can learn to generate realistic sounding names, using generative adversarial networks. The implementation is in tensorflow and work is still in progress. It shows promising results and does NOT throw *absolute gibberish*. But it is not able to generate sufficient variation in the output as of now.
 
 ## Main concept
 ### Generator
