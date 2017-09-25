@@ -13,40 +13,40 @@ from data_utils import get_data, get_character_mapping, vectorize, characterize
 
 
 parser = argparse.ArgumentParser(description='Train the name generator')
-parser.add_argument('--batch_size', default=128,
+parser.add_argument('--batch_size', type=int, default=128,
                    help='batch size for training')
-parser.add_argument('--input_noise_dim', default=1,
+parser.add_argument('--input_noise_dim', type=int, default=1,
                    help='dimension (integer) of the input noise')
-parser.add_argument('--learning_rate', default=0.01,
+parser.add_argument('--learning_rate', type=float, default=0.01,
                    help='learning rate (float) for training the GAN')
-parser.add_argument('--dis_dropout_keep_prob', default=0.5,
+parser.add_argument('--dis_dropout_keep_prob', type=float, default=0.5,
                    help='probability (float) of keeping (1 - dropout) nodes in discriminator')
-parser.add_argument('--minibatch_num_kernels', default=5,
+parser.add_argument('--minibatch_num_kernels', type=int, default=5,
                    help='number of kernels (integer) for minibatch discrimination')
-parser.add_argument('--minibatch_kernel_dim', default=5,
+parser.add_argument('--minibatch_kernel_dim', type=int, default=5,
                    help='dimension (integer) of the kernels for minibatch discrimination')
-parser.add_argument('--loss_control_ratio', default=0.3,
+parser.add_argument('--loss_control_ratio', type=float, default=0.3,
                    help='threshold for gen_loss to dis_loss ratio (and vice versa), to stop training the one which becomes significantly stronger')
-parser.add_argument('--max_iter', default=200,
+parser.add_argument('--max_iter', type=int, default=200,
                    help='number of iterations (integer) for training for each length')
-parser.add_argument('--start_len', default=1,
+parser.add_argument('--start_len', type=int, default=1,
                    help='length (integer) at which curriculum learning starts')
-parser.add_argument('--end_len', default=10,
+parser.add_argument('--end_len', type=int, default=10,
                    help='length (integer) at which curriculum learning stops')
 
 args = parser.parse_args()
 
 #set training parameters here
-BATCH_SIZE = int(args.batch_size)
-INPUT_NOISE_DIM = int(args.input_noise_dim)
-LEARNING_RATE = float(args.learning_rate)
-MAX_ITER = int(args.max_iter)
-DIS_DROPOUT_KEEP_PROB = float(args.dis_dropout_keep_prob)
-MINIBATCH_NUM_KERNELS = int(args.minibatch_num_kernels)
-MINIBATCH_KERNEL_DIM = int(args.minibatch_kernel_dim)
-GEN_DIS_LOSS_CONTROL_RATIO = float(args.loss_control_ratio)
-START_LEN = int(args.start_len)
-END_LEN = int(args.end_len)
+BATCH_SIZE = args.batch_size
+INPUT_NOISE_DIM = args.input_noise_dim
+LEARNING_RATE = args.learning_rate
+MAX_ITER = args.max_iter
+DIS_DROPOUT_KEEP_PROB = args.dis_dropout_keep_prob
+MINIBATCH_NUM_KERNELS = args.minibatch_num_kernels
+MINIBATCH_KERNEL_DIM = args.minibatch_kernel_dim
+GEN_DIS_LOSS_CONTROL_RATIO = args.loss_control_ratio
+START_LEN = args.start_len
+END_LEN = args.end_len
 
 # load the data and all
 names = get_data()
